@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <form action="{{ route('register') }}" method="post">
+    <form action="{{ route('register.store') }}" method="post">
         @csrf
         <input type="text" name="username">
         <input type="email" name="email">
