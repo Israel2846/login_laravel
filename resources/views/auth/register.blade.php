@@ -1,23 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.auth-master')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Register</title>
-</head>
-
-<body>
+@section('content')
     <form action="{{ route('register.store') }}" method="post">
         @csrf
-        <input type="text" name="username">
-        <input type="email" name="email">
-        <input type="password" name="password">
-        <input type="password" name="password_confirmation">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" name="username" placeholder="Nombre de usuario">
+            <label class="form-label">Nombre de usuario</label>
+        </div>
 
-        <button type="submit">Registrar</button>
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" name="email" placeholder="Email">
+            <label class="form-label">Email</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="password" class="form-control" name="password" placeholder="Password">
+            <label class="form-label">Password</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="password" class="form-control" name="password_confirmation" placeholder="Confirmación de password">
+            <label class="form-label">Password confirmation</label>
+        </div>
+
+        <div class="mb-3">
+            <a href="{{ route('login.show') }}">Iniciar sesión</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Registrar</button>
     </form>
-</body>
-
-</html>
+@endsection

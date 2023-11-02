@@ -1,15 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app-master')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home</title>
-</head>
-
-<body>
+@section('content')
     <h1>Home</h1>
-</body>
+    
+    @auth
+        <p>Bienvenido {{ auth()->user()->name ?? auth()->user()->username }}, estás autenticado a la pagina</p>
+        {{-- <p>Bienvenido {{ $username }}, estás autenticado a la pagina</p> --}}
+        <p>
+            <a href="{{ route('logout') }}">Logout</a>
+        </p>
+    @endauth
 
-</html>
+    @guest
+        <p>Para ver el contenido inicia sesión <a href="{{ route('login.show') }}">Iniciar sesión</a></p>
+    @endguest
+@endsection

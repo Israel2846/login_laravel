@@ -1,28 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.auth-master')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
-</head>
-
-<body>
+@section('content')
     <form action="{{ route('login.show') }}" method="post">
         @csrf
-        <label>
-            <p>Username / Email</p>
-            <input type="text" name="username">
-        </label>
+        <div class="mb-3">
+            <label class="form-label">Username / Email address</label>
+            <input type="text" class="form-control" name="username">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
 
-        <label>
-            <p>Password</p>
-            <input type="password" name="password">
-        </label>
+        <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-control" name="password">
+        </div>
+
+        <div class="mb-3">
+            <a href="{{ route('register.show') }}">Create account</a>
+        </div>
         
-        <button type="submit">Ingresar</button>
+        <button type="submit" class="btn btn-primary">Iniciar sesión</button>
     </form>
-</body>
-
-</html>
+@endsection
